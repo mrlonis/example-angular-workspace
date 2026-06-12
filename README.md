@@ -2,6 +2,34 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.15.
 
+```shell
+ng new example-angular-workspace --create-application=false
+✔ Which AI tools do you want to configure with Angular best practices? https://angular.dev/ai/develop-with-ai None, Agents.md      [ https://agents.md/                                               ], Claude
+      [ https://docs.anthropic.com/en/docs/claude-code/memory            ], Cursor         [ https://docs.cursor.com/en/context/rules                         ], Gemini         [
+https://ai.google.dev/gemini-api/docs                            ], GitHub Copilot [ https://code.visualstudio.com/docs/copilot/copilot-customization ], JetBrains AI   [
+https://www.jetbrains.com/help/junie/customize-guidelines.html   ], Windsurf       [ https://docs.windsurf.com/windsurf/cascade/memories#rules        ]
+CREATE example-angular-workspace/.prettierrc (161 bytes)
+CREATE example-angular-workspace/README.md (1477 bytes)
+CREATE example-angular-workspace/.editorconfig (314 bytes)
+CREATE example-angular-workspace/.gitignore (622 bytes)
+CREATE example-angular-workspace/angular.json (183 bytes)
+CREATE example-angular-workspace/package.json (722 bytes)
+CREATE example-angular-workspace/tsconfig.json (836 bytes)
+CREATE example-angular-workspace/AGENTS.md (2277 bytes)
+CREATE example-angular-workspace/.vscode/extensions.json (130 bytes)
+CREATE example-angular-workspace/.vscode/launch.json (470 bytes)
+CREATE example-angular-workspace/.vscode/mcp.json (179 bytes)
+CREATE example-angular-workspace/.vscode/tasks.json (978 bytes)
+CREATE example-angular-workspace/.claude/CLAUDE.md (2277 bytes)
+CREATE example-angular-workspace/.cursor/rules/cursor.mdc (2329 bytes)
+CREATE example-angular-workspace/.gemini/GEMINI.md (2277 bytes)
+CREATE example-angular-workspace/.github/copilot-instructions.md (2277 bytes)
+CREATE example-angular-workspace/.junie/guidelines.md (2277 bytes)
+CREATE example-angular-workspace/.windsurf/rules/guidelines.md (2277 bytes)
+✔ Packages installed successfully.
+    Successfully initialized git.
+```
+
 ## Development server
 
 To start a local development server, run:
