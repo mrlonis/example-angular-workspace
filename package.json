@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "ng build",
+    "lint": "ng lint",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
@@ -22,8 +23,12 @@
   "devDependencies": {
     "@angular/cli": "^21.2.15",
     "@angular/compiler-cli": "^21.2.0",
+    "@eslint/js": "^10.0.1",
+    "angular-eslint": "21.4.0",
+    "eslint": "^10.3.0",
     "prettier": "^3.8.1",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.59.2"
   },
   "packageManager": "npm@11.13.0"
 }

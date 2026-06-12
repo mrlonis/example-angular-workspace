@@ -85,3 +85,36 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Adding ESLint
+
+```shell
+npm run ng -- add angular-eslint@21
+
+> example-angular-workspace@0.0.0 ng
+> ng add angular-eslint@21
+
+
+Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.dev/cli/analytics.
+
+   No
+Global setting: enabled
+Local setting: disabled
+Effective status: disabled
+✔ Determining Package Manager
+  › Using package manager: npm
+✔ Loading package information
+✔ Confirming installation
+✔ Installing package
+
+    All angular-eslint dependencies have been successfully installed 🎉
+
+    Please see https://github.com/angular-eslint/angular-eslint for how to add ESLint configuration to your project.
+
+CREATE eslint.config.js (646 bytes)
+UPDATE package.json (865 bytes)
+UPDATE angular.json (264 bytes)
+✔ Packages installed successfully.
+```
