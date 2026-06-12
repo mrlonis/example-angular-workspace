@@ -6,6 +6,8 @@
     "build": "ng build",
     "lint": "ng lint",
     "ng": "ng",
+    "prettier": "prettier --config .prettierrc --write \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}\"",
+    "prettier:test": "prettier --config .prettierrc --list-different \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}\"",
     "start": "ng serve",
     "test": "ng test",
     "watch": "ng build --watch --configuration development"
