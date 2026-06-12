@@ -7,5 +7,39 @@
     "schematicCollections": ["angular-eslint"]
   },
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "example-lib": {
+      "projectType": "library",
+      "root": "projects/example-lib",
+      "sourceRoot": "projects/example-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/example-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/example-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/example-lib/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/example-lib/**/*.ts", "projects/example-lib/**/*.html"],
+            "eslintConfig": "projects/example-lib/eslint.config.js"
+          }
+        }
+      }
+    }
+  }
 }
