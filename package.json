@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "ng build",
-    "build:all": "npm run build -- lib && npm run build -- app",
+    "build:all": "npm run build -- lib && npm run build -- table && npm run build -- app",
     "lint": "ng lint",
     "lint:fix": "npm run lint -- --fix",
     "ng": "ng",
@@ -27,7 +27,10 @@
     "projects/lib/**/*.{html,ts}": [
       "ng-lint-staged lint lib --fix --"
     ],
-    "!({package.json,projects/**/package.json,projects/app/**/*.{html,ts},projects/lib/**/*.{html,ts}})": [
+    "projects/table/**/*.{html,ts}": [
+      "ng-lint-staged lint table --fix --"
+    ],
+    "!({package.json,projects/**/package.json,projects/app/**/*.{html,ts},projects/lib/**/*.{html,ts},projects/table/**/*.{html,ts}})": [
       "prettier --write --ignore-unknown"
     ]
   },

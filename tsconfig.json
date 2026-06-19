@@ -7,7 +7,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "lib": ["./dist/lib"]
+      "lib": ["./dist/lib"],
+      "table": ["./dist/table"]
     },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -35,6 +36,12 @@
     },
     {
       "path": "./projects/lib/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/table/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/table/tsconfig.spec.json"
     }
   ]
 }

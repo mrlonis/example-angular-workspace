@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Lib } from 'lib';
+import { Table } from 'table';
 
 @Component({
   selector: 'app-root',
-  imports: [Lib, RouterOutlet],
+  imports: [Lib, RouterOutlet, Table],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
