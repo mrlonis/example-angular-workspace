@@ -14,12 +14,15 @@
     "watch": "ng build --watch --configuration development"
   },
   "lint-staged": {
-    "package.json": [
+    "package.json,projects/**/package.json": [
       "sort-package-json",
       "prettier --write"
     ],
-    "projects/**/*.{html,ts}": [
-      "ng-lint-staged lint --fix --"
+    "projects/app/**/*.{html,ts}": [
+      "ng-lint-staged lint app --fix --"
+    ],
+    "projects/lib/**/*.{html,ts}": [
+      "ng-lint-staged lint lib --fix --"
     ],
     "*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}": [
       "prettier --write"
@@ -48,6 +51,7 @@
     "jsdom": "^28.0.0",
     "lint-staged": "^17.0.7",
     "ng-lint-staged": "^12.0.4",
+    "ng-packagr": "^22.0.0",
     "prettier": "^3.8.4",
     "sort-package-json": "^4.0.0",
     "typescript": "~6.0.2",

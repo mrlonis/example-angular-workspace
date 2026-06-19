@@ -194,3 +194,28 @@ UPDATE package.json (1591 bytes)
 UPDATE projects/app/src/styles.scss (1260 bytes)
 UPDATE projects/app/src/index.html (658 bytes)
 ```
+
+### Generating the Library
+
+```shell
+npm run ng -- g lib
+
+> example-angular-workspace@0.0.0 ng
+> ng g lib
+
+✔ What name would you like to use for the library? lib
+CREATE projects/lib/README.md (1433 bytes)
+CREATE projects/lib/ng-package.json (152 bytes)
+CREATE projects/lib/package.json (207 bytes)
+CREATE projects/lib/tsconfig.lib.json (486 bytes)
+CREATE projects/lib/tsconfig.lib.prod.json (401 bytes)
+CREATE projects/lib/tsconfig.spec.json (449 bytes)
+CREATE projects/lib/src/public-api.ts (64 bytes)
+CREATE projects/lib/src/lib/lib.spec.ts (510 bytes)
+CREATE projects/lib/src/lib/lib.ts (187 bytes)
+CREATE projects/lib/eslint.config.js (627 bytes)
+UPDATE angular.json (3547 bytes)
+UPDATE package.json (1697 bytes)
+UPDATE tsconfig.json (1125 bytes)
+✔ Packages installed successfully.
+```
