@@ -69,6 +69,26 @@ UPDATE angular.json (297 bytes)
 ✔ Packages installed successfully.
 ```
 
+### Adding Angular Material
+
+```shell
+npm run ng -- add @angular/material@22
+
+> example-angular-workspace@0.0.0 ng
+> ng add @angular/material@22
+
+✔ Determining Package Manager
+  › Using package manager: npm
+✔ Loading package information
+✔ Confirming installation
+✔ Installing package
+✔ Select a pair of starter prebuilt color palettes for your Angular Material theme Cyan/Orange        [Preview: https://material.
+angular.dev?theme=cyan-orange]
+UPDATE package.json (1510 bytes)
+✔ Packages installed successfully.
+Project name is required.
+```
+
 ## Development server
 
 To start a local development server, run:
