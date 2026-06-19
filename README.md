@@ -144,3 +144,53 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Generations
+
+### Generating the Application
+
+```shell
+npm run ng -- g app
+
+> example-angular-workspace@0.0.0 ng
+> ng g app
+
+✔ What name would you like to use for the application? app
+✔ Which stylesheet system would you like to use? Sass (SCSS)     [ https://sass-lang.com/documentation/syntax#scss
+ ]
+✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? No
+CREATE projects/app/src/app/app.scss (0 bytes)
+CREATE projects/app/src/app/app.spec.ts (670 bytes)
+CREATE projects/app/src/app/app.ts (286 bytes)
+CREATE projects/app/src/app/app.html (20144 bytes)
+CREATE projects/app/src/main.ts (222 bytes)
+CREATE projects/app/src/app/app.config.ts (313 bytes)
+CREATE projects/app/src/app/app.routes.ts (77 bytes)
+CREATE projects/app/tsconfig.app.json (437 bytes)
+CREATE projects/app/tsconfig.spec.json (449 bytes)
+CREATE projects/app/public/favicon.ico (15086 bytes)
+CREATE projects/app/src/index.html (289 bytes)
+CREATE projects/app/src/styles.scss (80 bytes)
+CREATE projects/app/eslint.config.js (627 bytes)
+UPDATE angular.json (2521 bytes)
+UPDATE tsconfig.json (934 bytes)
+UPDATE package.json (1591 bytes)
+✔ Packages installed successfully.
+```
+
+#### Adding @angular/material to the App Application
+
+```shell
+npm run ng -- add @angular/material@22 --project=app
+
+> example-angular-workspace@0.0.0 ng
+> ng add @angular/material@22 --project=app
+
+Skipping installation: Package already installed
+✔ Select a pair of starter prebuilt color palettes for your Angular Material theme Cyan/Orange        [Preview: https://material.
+angular.dev?theme=cyan-orange]
+UPDATE package.json (1591 bytes)
+✔ Packages installed successfully.
+UPDATE projects/app/src/styles.scss (1260 bytes)
+UPDATE projects/app/src/index.html (658 bytes)
+```
