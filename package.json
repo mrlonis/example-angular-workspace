@@ -14,7 +14,7 @@
     "watch": "ng build --watch --configuration development"
   },
   "lint-staged": {
-    "package.json,projects/**/package.json": [
+    "{package.json,projects/**/package.json}": [
       "sort-package-json",
       "prettier --write"
     ],
