@@ -30,6 +30,45 @@ CREATE example-angular-workspace/.windsurf/rules/guidelines.md (2637 bytes)
     Successfully initialized git.
 ```
 
+### Adding ESLint
+
+```shell
+npm run ng -- add angular-eslint@22
+
+> example-angular-workspace@0.0.0 ng
+> ng add angular-eslint@22
+
+
+Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.dev/cli/analytics.
+
+   Yes
+
+Thank you for sharing pseudonymous usage data. Should you change your mind, the following
+command will disable this feature entirely:
+
+    ng analytics disable
+
+Global setting: enabled
+Local setting: enabled
+Effective status: enabled
+✔ Determining Package Manager
+  › Using package manager: npm
+✔ Loading package information
+✔ Confirming installation
+✔ Installing package
+
+    All angular-eslint dependencies have been successfully installed 🎉
+
+    Please see https://github.com/angular-eslint/angular-eslint for how to add ESLint configuration to your project.
+
+CREATE eslint.config.js (646 bytes)
+UPDATE package.json (864 bytes)
+UPDATE angular.json (297 bytes)
+✔ Packages installed successfully.
+```
+
 ## Development server
 
 To start a local development server, run:
