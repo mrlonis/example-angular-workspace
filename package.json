@@ -24,8 +24,8 @@
     "projects/lib/**/*.{html,ts}": [
       "ng-lint-staged lint lib --fix --"
     ],
-    "*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}": [
-      "prettier --write"
+    "!({package.json,projects/**/package.json,projects/app/**/*.{html,ts},projects/lib/**/*.{html,ts}})": [
+      "prettier --write --ignore-unknown"
     ]
   },
   "dependencies": {
