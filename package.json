@@ -6,9 +6,21 @@
     "build": "ng build",
     "lint": "ng lint",
     "ng": "ng",
+    "prepare": "husky",
+    "prettier": "prettier --config .prettierrc --write \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}\"",
+    "prettier:test": "prettier --config .prettierrc --list-different \"**/*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}\"",
     "start": "ng serve",
     "test": "ng test",
     "watch": "ng build --watch --configuration development"
+  },
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json",
+      "prettier --write"
+    ],
+    "*.{css,html,js,jsx,json,md,scss,ts,tsx,yaml,yml}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@angular/common": "^22.0.0",
@@ -26,7 +38,11 @@
     "@eslint/js": "^10.0.1",
     "angular-eslint": "22.0.0",
     "eslint": "^10.3.0",
-    "prettier": "^3.8.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
+    "ng-lint-staged": "^12.0.4",
+    "prettier": "^3.8.4",
+    "sort-package-json": "^4.0.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "8.60.1"
   },
