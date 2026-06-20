@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, computed, input, ViewChild } from '@angular/core';
+import { Component, computed, input, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -20,38 +20,22 @@ import { PeriodicElement } from 'lib';
   templateUrl: './table.html',
   styleUrl: './table.scss',
 })
-export class Table implements AfterViewInit {
+export class Table {
   // Signals
   readonly data = input<PeriodicElement[]>([]);
+  readonly paginator = viewChild(MatPaginator);
+  readonly sort = viewChild(MatSort);
   readonly dataSource = computed(() => {
     const dataSource = new MatTableDataSource<PeriodicElement>(this.data());
-    if (this.paginator) {
-      dataSource.paginator = this.paginator;
-    }
-    if (this.sort) {
-      dataSource.sort = this.sort;
-    }
+    dataSource.paginator = this.paginator();
+    dataSource.sort = this.sort();
     return dataSource;
   });
-
-  // View Children
-  @ViewChild(MatPaginator) paginator?: MatPaginator;
-  @ViewChild(MatSort) sort?: MatSort;
 
   // Properties
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null = null;
-
-  // Lifecycle Hooks
-  ngAfterViewInit() {
-    if (this.paginator) {
-      this.dataSource().paginator = this.paginator;
-    }
-    if (this.sort) {
-      this.dataSource().sort = this.sort;
-    }
-  }
 
   // Methods
   /** Checks whether an element is expanded. */
