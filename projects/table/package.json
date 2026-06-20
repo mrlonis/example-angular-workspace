@@ -5,11 +5,13 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
+  "devDependencies": {
+    "@angular/platform-browser": "^22"
+  },
   "peerDependencies": {
     "@angular/common": "^22",
     "@angular/core": "^22",
     "@angular/material": "^22",
-    "@angular/platform-browser": "^22",
     "lib": "~0.0.1",
     "paginator": "~0.0.1"
   }
