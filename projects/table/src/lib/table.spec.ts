@@ -25,6 +25,6 @@ describe('Table', () => {
     fixture.componentRef.setInput('filter', 'Hydrogen');
     fixture.detectChanges();
 
-    expect(component.dataSource().filteredData).toHaveLength(1);
+    expect(component.dataSource.filteredData).toHaveLength(1);
   });
 });

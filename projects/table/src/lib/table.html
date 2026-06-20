@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource()" matSort multiTemplateDataRows class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8">
   @for (column of columnsToDisplay; track column) {
     <ng-container matColumnDef="{{ column }}">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column }}</th>

@@ -1,4 +1,4 @@
-import { Component, computed, input, signal, viewChild } from '@angular/core';
+import { Component, effect, input, signal, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
@@ -19,17 +19,19 @@ export class Table {
   readonly filter = input<string>('');
   readonly paginator = signal<MatPaginator | null>(null);
   readonly sort = viewChild(MatSort);
-  readonly dataSource = computed(() => {
-    const dataSource = new MatTableDataSource<PeriodicElement>(this.data());
-    dataSource.paginator = this.paginator();
-    dataSource.sort = this.sort();
-    dataSource.filter = this.filter().trim().toLowerCase();
-    return dataSource;
+
+  // Effects
+  readonly syncDataSourceEffect = effect(() => {
+    this.dataSource.data = this.data();
+    this.dataSource.filter = this.filter().trim().toLowerCase();
+    this.dataSource.sort = this.sort();
+    this.dataSource.paginator = this.paginator();
   });
 
   // Properties
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  readonly dataSource = new MatTableDataSource<PeriodicElement>([]);
+  readonly columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
+  readonly columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null = null;
 
   // Methods
