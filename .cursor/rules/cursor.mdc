@@ -75,6 +75,11 @@ Use these versions as compatibility targets when generating code, tests, and com
 ## Testing Guidelines
 
 - This project uses `vitest` (v4) for unit testing. Write and update unit tests using Vitest APIs and patterns.
+- When running tests, prefer scoped commands that target only the changed project or spec file.
+- Example: run tests for the full `table` project:
+  - `npm run test -- table --no-watch --coverage --coverage-reporters text`
+- Example: run tests for only `projects/table/src/lib/table.spec.ts`:
+  - `npm run test -- table --no-watch --coverage --coverage-reporters text --include='projects/table/src/lib/table.spec.ts'`
 - Place tests close to the code they verify, and keep test setup focused on behavior rather than implementation details.
 - Prefer clear Arrange-Act-Assert structure with descriptive test names that document expected behavior.
 - Cover happy paths, edge cases, and error handling for components, services, and utility functions.
