@@ -54,3 +54,13 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use the `providedIn: 'root'` option for singleton services
 - Prefer the `@Service` decorator over `@Injectable({providedIn: 'root'})` for new singleton services (Angular v22+)
 - Use the `inject()` function instead of constructor injection
+
+## Testing Guidelines
+
+- This project uses `vitest` for unit testing. Write and update unit tests using Vitest APIs and patterns.
+- Place tests close to the code they verify, and keep test setup focused on behavior rather than implementation details.
+- Prefer clear Arrange-Act-Assert structure with descriptive test names that document expected behavior.
+- Cover happy paths, edge cases, and error handling for components, services, and utility functions.
+- Keep tests deterministic: avoid time, network, and global state coupling unless explicitly mocked.
+- Mock only what is necessary, and prefer lightweight fakes/stubs over deep or brittle mocks.
+- Ensure tests are fast and isolated so they can run reliably in CI.
