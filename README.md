@@ -71,6 +71,8 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 npm run test:ci
 ```
 
+**Note:** You will need to build the project before running unit tests to ensure that all TypeScript files are compiled and up-to-date. This is due to the multi-project nature of this Angular workspace, where project compiled outputs are paths in the root `tsconfig.json`.
+
 ## Linting
 
 To lint the project and check for code style issues, run:
@@ -84,6 +86,8 @@ To automatically fix linting issues that can be resolved programmatically, run:
 ```bash
 npm run lint:fix
 ```
+
+**Note:** You will need to build the project before running linting to ensure that all TypeScript files are compiled and up-to-date. This is due to the multi-project nature of this Angular workspace, where project compiled outputs are paths in the root `tsconfig.json`.
 
 ## Running end-to-end tests
 
