@@ -1,1 +1,7 @@
-<lib-table [data]="data" />
+<lib-input
+  [label]="'Filter'"
+  [placeholder]="'Ex. Hydrogen'"
+  [value]="filter()"
+  (valueChange)="filter.set($event)"
+/>
+<lib-table [data]="data" [filter]="filter()" />

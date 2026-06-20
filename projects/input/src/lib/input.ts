@@ -14,7 +14,7 @@ export class Input {
   readonly placeholder = input<string>('');
   readonly value = model<string>('');
 
-  onKeyup(event: Event): void {
+  onInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     this.value.set(inputElement.value);
   }

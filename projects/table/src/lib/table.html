@@ -1,4 +1,3 @@
-<lib-input [label]="'Filter'" [placeholder]="'Ex. Hydrogen'" (valueChange)="applyFilter($event)" />
 <table mat-table [dataSource]="dataSource()" matSort multiTemplateDataRows class="mat-elevation-z8">
   @for (column of columnsToDisplay; track column) {
     <ng-container matColumnDef="{{ column }}">

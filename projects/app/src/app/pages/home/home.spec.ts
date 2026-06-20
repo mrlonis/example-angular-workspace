@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { Table } from 'table';
 import { Home } from './home';
 
 describe('Home', () => {
@@ -17,5 +19,14 @@ describe('Home', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('passes the signal filter to the table', () => {
+    component.filter.set('Hydrogen');
+    fixture.detectChanges();
+
+    const tableDebugElement = fixture.debugElement.query(By.directive(Table));
+    const tableComponentInstance = tableDebugElement.componentInstance as Table;
+    expect(tableComponentInstance.filter()).toBe('Hydrogen');
   });
 });

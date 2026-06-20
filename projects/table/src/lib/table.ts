@@ -4,31 +4,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Input } from 'input';
 import { PeriodicElement } from 'lib';
 
 @Component({
   selector: 'lib-table',
-  imports: [
-    Input,
-    MatButtonModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule,
-  ],
+  imports: [MatButtonModule, MatIconModule, MatPaginatorModule, MatSortModule, MatTableModule],
   templateUrl: './table.html',
   styleUrl: './table.scss',
 })
 export class Table {
   // Signals
   readonly data = input<PeriodicElement[]>([]);
+  readonly filter = input<string>('');
   readonly paginator = viewChild(MatPaginator);
   readonly sort = viewChild(MatSort);
   readonly dataSource = computed(() => {
     const dataSource = new MatTableDataSource<PeriodicElement>(this.data());
     dataSource.paginator = this.paginator();
     dataSource.sort = this.sort();
+    dataSource.filter = this.filter().trim().toLowerCase();
     return dataSource;
   });
 
@@ -46,10 +40,5 @@ export class Table {
   /** Toggles the expanded state of an element. */
   toggle(element: PeriodicElement) {
     this.expandedElement = this.isExpanded(element) ? null : element;
-  }
-
-  applyFilter(event: string) {
-    this.dataSource().filter = event.trim().toLowerCase();
-    this.dataSource().paginator?.firstPage();
   }
 }
