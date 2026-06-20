@@ -1,5 +1,5 @@
 {
-  "name": "table",
+  "name": "paginator",
   "version": "0.0.1",
   "sideEffects": false,
   "dependencies": {
@@ -8,8 +8,6 @@
   "peerDependencies": {
     "@angular/common": "^22",
     "@angular/core": "^22",
-    "@angular/material": "^22",
-    "lib": "~0.0.1",
-    "paginator": "~0.0.1"
+    "@angular/material": "^22"
   }
 }

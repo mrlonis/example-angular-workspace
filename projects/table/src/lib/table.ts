@@ -1,14 +1,15 @@
-import { Component, computed, input, viewChild } from '@angular/core';
+import { Component, computed, input, signal, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { PeriodicElement } from 'lib';
+import { Paginator } from 'paginator';
 
 @Component({
   selector: 'lib-table',
-  imports: [MatButtonModule, MatIconModule, MatPaginatorModule, MatSortModule, MatTableModule],
+  imports: [MatButtonModule, MatIconModule, MatSortModule, MatTableModule, Paginator],
   templateUrl: './table.html',
   styleUrl: './table.scss',
 })
@@ -16,7 +17,7 @@ export class Table {
   // Signals
   readonly data = input<PeriodicElement[]>([]);
   readonly filter = input<string>('');
-  readonly paginator = viewChild(MatPaginator);
+  readonly paginator = signal<MatPaginator | null>(null);
   readonly sort = viewChild(MatSort);
   readonly dataSource = computed(() => {
     const dataSource = new MatTableDataSource<PeriodicElement>(this.data());
@@ -40,5 +41,9 @@ export class Table {
   /** Toggles the expanded state of an element. */
   toggle(element: PeriodicElement) {
     this.expandedElement = this.isExpanded(element) ? null : element;
+  }
+
+  onPaginatorReady(paginator: MatPaginator) {
+    this.paginator.set(paginator);
   }
 }

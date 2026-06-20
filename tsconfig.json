@@ -9,6 +9,7 @@
     "paths": {
       "input": ["./dist/input"],
       "lib": ["./dist/lib"],
+      "paginator": ["./dist/paginator"],
       "table": ["./dist/table"]
     },
     "noFallthroughCasesInSwitch": true,
@@ -52,6 +53,12 @@
     },
     {
       "path": "./tests/tsconfig.json"
+    },
+    {
+      "path": "./projects/paginator/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/paginator/tsconfig.spec.json"
     }
   ]
 }

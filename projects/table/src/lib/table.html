@@ -45,10 +45,11 @@
 
   <ng-container matColumnDef="paginator">
     <td mat-footer-cell *matFooterCellDef [attr.colspan]="columnsToDisplayWithExpand.length">
-      <mat-paginator
+      <lib-paginator
         [pageSizeOptions]="[5, 10, 25, 50, 100]"
         [pageSize]="50"
-        aria-label="Select page of periodic elements"
+        ariaLabel="Select page of periodic elements"
+        (paginatorReady)="onPaginatorReady($event)"
       />
     </td>
   </ng-container>

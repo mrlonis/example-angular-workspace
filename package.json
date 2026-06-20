@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "ng build",
-    "build:all": "npm run build -- lib && npm run build -- input && npm run build -- table && npm run build -- app",
+    "build:all": "npm run build -- lib && npm run build -- input && npm run build -- paginator && npm run build -- table && npm run build -- app",
     "lint": "ng lint",
     "lint:ci": "npm run lint && npm run lint:playwright",
     "lint:fix": "npm run lint -- --fix && npm run lint:playwright -- --fix",
@@ -37,10 +37,13 @@
     "projects/lib/**/*.{html,ts}": [
       "ng-lint-staged lint lib --fix --"
     ],
+    "projects/paginator/**/*.{html,ts}": [
+      "ng-lint-staged lint paginator --fix --"
+    ],
     "projects/table/**/*.{html,ts}": [
       "ng-lint-staged lint table --fix --"
     ],
-    "!({package.json,projects/**/package.json,projects/app/**/*.{html,ts},projects/lib/**/*.{html,ts},projects/table/**/*.{html,ts}})": [
+    "!({package.json,projects/**/package.json,projects/app/**/*.{html,ts},projects/lib/**/*.{html,ts},projects/paginator/**/*.{html,ts},projects/table/**/*.{html,ts}})": [
       "prettier --write --ignore-unknown"
     ]
   },
