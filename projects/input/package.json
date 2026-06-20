@@ -1,5 +1,5 @@
 {
-  "name": "table",
+  "name": "input",
   "version": "0.0.1",
   "sideEffects": false,
   "dependencies": {
@@ -8,8 +8,6 @@
   "peerDependencies": {
     "@angular/common": "^22",
     "@angular/core": "^22",
-    "@angular/material": "^22",
-    "input": "~0.0.1",
-    "lib": "~0.0.1"
+    "@angular/material": "^22"
   }
 }

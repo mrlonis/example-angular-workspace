@@ -1,0 +1,21 @@
+import { Component, input, model } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+@Component({
+  selector: 'lib-input',
+  imports: [MatFormFieldModule, MatInputModule],
+  templateUrl: './input.html',
+  styleUrl: './input.scss',
+})
+export class Input {
+  // Signals
+  readonly label = input<string>('');
+  readonly placeholder = input<string>('');
+  readonly value = model<string>('');
+
+  onKeyup(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.value.set(inputElement.value);
+  }
+}

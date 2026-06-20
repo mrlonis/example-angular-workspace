@@ -7,6 +7,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
+      "input": ["./dist/input"],
       "lib": ["./dist/lib"],
       "table": ["./dist/table"]
     },
@@ -42,6 +43,12 @@
     },
     {
       "path": "./projects/table/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/input/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/input/tsconfig.spec.json"
     }
   ]
 }

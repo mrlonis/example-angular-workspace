@@ -1,0 +1,4 @@
+<mat-form-field>
+  <mat-label>{{ label() }}</mat-label>
+  <input matInput (keyup)="onKeyup($event)" [placeholder]="placeholder()" #input />
+</mat-form-field>

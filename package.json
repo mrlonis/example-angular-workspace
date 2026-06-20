@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "ng build",
-    "build:all": "npm run build -- lib && npm run build -- table && npm run build -- app",
+    "build:all": "npm run build -- lib && npm run build -- input && npm run build -- table && npm run build -- app",
     "lint": "ng lint",
     "lint:fix": "npm run lint -- --fix",
     "ng": "ng",
