@@ -18,6 +18,37 @@ Use these versions as compatibility targets when generating code, tests, and com
 - Vitest: v4 (configured as `^4`)
 - ESLint: v9 (configured as `^9`)
 
+## Workflow Command Decision Tree
+
+- If only one spec file changed, run a single-spec test command with `--include`.
+- If one project changed, run scoped lint/test commands for that project.
+- If shared configs, path mappings, or library dependencies changed, run `npm run build:all` first, then run lint/tests.
+- Before finalizing work, run CI parity commands in the same order used by the GitHub workflow.
+
+## Project Map and Scoped Commands
+
+- Projects in this workspace: `app` (application), `lib` (library), `table` (library).
+- Lint only `app`:
+  - `npm run lint -- app`
+- Lint only `lib`:
+  - `npm run lint -- lib`
+- Lint only `table`:
+  - `npm run lint -- table`
+- Test only `app`:
+  - `npm run test -- app --no-watch --coverage --coverage-reporters text`
+- Test only `lib`:
+  - `npm run test -- lib --no-watch --coverage --coverage-reporters text`
+- Test only `table`:
+  - `npm run test -- table --no-watch --coverage --coverage-reporters text`
+
+## AI Instruction Source of Truth
+
+- Do not manually edit generated AI instruction files such as `AGENTS.md`, `.claude/CLAUDE.md`, `.gemini/GEMINI.md`, `.github/copilot-instructions.md`, `.junie/guidelines.md`, `.windsurf/rules/guidelines.md`, or `.cursor/rules/cursor.mdc`.
+- Edit only `agent-instructions/source.md`.
+- After editing, run:
+  - `npm run sync:agent-instructions`
+  - `npm run sync:agent-instructions:check`
+
 ## TypeScript Best Practices
 
 - Use strict type checking
@@ -34,6 +65,11 @@ Use these versions as compatibility targets when generating code, tests, and com
 - Do NOT use the `@HostBinding` and `@HostListener` decorators. Put host bindings inside the `host` object of the `@Component` or `@Directive` decorator instead
 - Use `NgOptimizedImage` for all static images.
   - `NgOptimizedImage` does not work for inline base64 images.
+
+### Selector Prefix Rules
+
+- In the `app` project, use `app` selector prefixes.
+- In library projects (`lib`, `table`), use `lib` selector prefixes.
 
 ## Accessibility Requirements
 
@@ -81,6 +117,13 @@ Use these versions as compatibility targets when generating code, tests, and com
 - This repository uses TypeScript path mappings in the root `tsconfig.json` that point Angular library imports to built outputs in `dist`. If libraries are not built, linting can fail with import/path resolution errors.
 - When creating new Angular libraries or applications, update the `build:all` script in `package.json` so the new project is included in the standard build workflow.
 
+## New Project Checklist
+
+- If you add a new Angular application or library, update `build:all` in `package.json` to include it.
+- Confirm the root `tsconfig.json` references/paths are correct for the new project.
+- Update `lint-staged` patterns in `package.json` if needed so staged-file linting/formatting still applies.
+- Add or update scoped lint/test command examples in this file for the new project.
+
 ## Linting Guidelines
 
 - This project uses `eslint` (v9) for linting.
@@ -88,7 +131,18 @@ Use these versions as compatibility targets when generating code, tests, and com
 - Example: lint only the `table` project:
   - `npm run lint -- table`
 - If linting fails with unresolved imports or path issues, run `npm run build:all` first, then rerun the lint command.
+- Keep imports ordered/alphabetized and grouped as required by lint rules.
+- Use Angular template control flow syntax (`@if`, `@for`, `@switch`) in templates.
+- Do not use non-null assertions (`!`) unless absolutely necessary.
 - Fix root-cause issues rather than suppressing rules unless there is a documented, justified exception.
+
+## CI Parity Commands
+
+- Before finalizing changes, run the same sequence used in CI:
+  - `npm run sync:agent-instructions:check`
+  - `npm run build:all`
+  - `npm run lint`
+  - `npm run test:ci`
 
 ## Testing Guidelines
 
@@ -98,6 +152,7 @@ Use these versions as compatibility targets when generating code, tests, and com
   - `npm run test -- table --no-watch --coverage --coverage-reporters text`
 - Example: run tests for only `projects/table/src/lib/table.spec.ts`:
   - `npm run test -- table --no-watch --coverage --coverage-reporters text --include='projects/table/src/lib/table.spec.ts'`
+- For `--include`, always use workspace-relative paths (no leading slash), for example `projects/table/src/lib/table.spec.ts`.
 - Place tests close to the code they verify, and keep test setup focused on behavior rather than implementation details.
 - Prefer clear Arrange-Act-Assert structure with descriptive test names that document expected behavior.
 - Cover happy paths, edge cases, and error handling for components, services, and utility functions.
