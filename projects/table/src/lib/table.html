@@ -47,6 +47,16 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="paginator">
+    <td mat-footer-cell *matFooterCellDef [attr.colspan]="columnsToDisplayWithExpand.length">
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 50, 100]"
+        [pageSize]="50"
+        aria-label="Select page of periodic elements"
+      />
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand; sticky: true"></tr>
   <tr
     mat-row
@@ -56,9 +66,5 @@
     (click)="toggle(element)"
   ></tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  <tr mat-footer-row *matFooterRowDef="['paginator']; sticky: true"></tr>
 </table>
-<mat-paginator
-  [pageSizeOptions]="[5, 10, 25, 50, 100]"
-  [pageSize]="50"
-  aria-label="Select page of periodic elements"
-/>
