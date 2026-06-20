@@ -49,6 +49,9 @@
     },
     {
       "path": "./projects/input/tsconfig.spec.json"
+    },
+    {
+      "path": "./tests/tsconfig.json"
     }
   ]
 }
