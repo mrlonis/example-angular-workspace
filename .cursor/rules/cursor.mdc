@@ -16,6 +16,7 @@ Use these versions as compatibility targets when generating code, tests, and com
 - npm: v11.13.0
 - RxJS: v7 (configured as `^7`)
 - Vitest: v4 (configured as `^4`)
+- ESLint: v9 (configured as `^9`)
 
 ## TypeScript Best Practices
 
@@ -71,6 +72,23 @@ Use these versions as compatibility targets when generating code, tests, and com
 - Use the `providedIn: 'root'` option for singleton services
 - Prefer the `@Service` decorator over `@Injectable({providedIn: 'root'})` for new singleton services (Angular v22+)
 - Use the `inject()` function instead of constructor injection
+
+## Building Guidelines
+
+- Use the repository build script before linting/testing when project dependencies may have changed.
+- Preferred command for this repo:
+  - `npm run build:all`
+- This repository uses TypeScript path mappings in the root `tsconfig.json` that point Angular library imports to built outputs in `dist`. If libraries are not built, linting can fail with import/path resolution errors.
+- When creating new Angular libraries or applications, update the `build:all` script in `package.json` so the new project is included in the standard build workflow.
+
+## Linting Guidelines
+
+- This project uses `eslint` (v9) for linting.
+- Prefer scoped lint commands that target only the changed project when possible.
+- Example: lint only the `table` project:
+  - `npm run lint -- table`
+- If linting fails with unresolved imports or path issues, run `npm run build:all` first, then rerun the lint command.
+- Fix root-cause issues rather than suppressing rules unless there is a documented, justified exception.
 
 ## Testing Guidelines
 
