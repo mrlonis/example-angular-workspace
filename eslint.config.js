@@ -45,6 +45,7 @@ module.exports = defineConfig([
       'import/no-absolute-path': 'error',
       'import/no-cycle': 'error',
       'import/no-deprecated': 'error',
+      'import/no-extraneous-dependencies': ['error'],
       'import/no-self-import': 'error',
       'import/no-unresolved': 'error',
       'import/no-useless-path-segments': ['error', { noUselessIndex: true, commonjs: true }],
