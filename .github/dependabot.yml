@@ -21,14 +21,14 @@ updates:
       angular-version-updates:
         applies-to: version-updates
         patterns:
-          - '@angular*'
+          - '*angular*'
         update-types:
           - 'patch'
           - 'minor'
       angular-security-updates:
         applies-to: security-updates
         patterns:
-          - '@angular*'
+          - '*angular*'
         update-types:
           - 'patch'
           - 'minor'
@@ -57,7 +57,7 @@ updates:
           - 'patch'
           - 'minor'
     ignore:
-      - dependency-name: '@angular*'
+      - dependency-name: '*angular*'
         update-types: ['version-update:semver-major']
       - dependency-name: '*eslint*'
         update-types: ['version-update:semver-major']
