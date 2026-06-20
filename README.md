@@ -147,7 +147,7 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Generations
 
-### Generating the Application
+### Generating the App Application
 
 ```shell
 npm run ng -- g app
@@ -195,7 +195,7 @@ UPDATE projects/app/src/styles.scss (1260 bytes)
 UPDATE projects/app/src/index.html (658 bytes)
 ```
 
-### Generating the Library
+### Generating the Lib Library
 
 ```shell
 npm run ng -- g lib
@@ -218,4 +218,27 @@ UPDATE angular.json (3547 bytes)
 UPDATE package.json (1697 bytes)
 UPDATE tsconfig.json (1125 bytes)
 ✔ Packages installed successfully.
+```
+
+### Generating the Table Library
+
+```shell
+npm run ng -- g lib
+
+> example-angular-workspace@0.0.0 ng
+> ng g lib
+
+✔ What name would you like to use for the library? table
+CREATE projects/table/README.md (1439 bytes)
+CREATE projects/table/ng-package.json (154 bytes)
+CREATE projects/table/package.json (209 bytes)
+CREATE projects/table/tsconfig.lib.json (486 bytes)
+CREATE projects/table/tsconfig.lib.prod.json (401 bytes)
+CREATE projects/table/tsconfig.spec.json (449 bytes)
+CREATE projects/table/src/public-api.ts (68 bytes)
+CREATE projects/table/src/lib/table.spec.ts (524 bytes)
+CREATE projects/table/src/lib/table.ts (193 bytes)
+CREATE projects/table/eslint.config.js (627 bytes)
+UPDATE angular.json (4591 bytes)
+UPDATE tsconfig.json (1303 bytes)
 ```
