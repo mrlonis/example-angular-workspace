@@ -2,6 +2,10 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.3.
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ab592b09cb3b4cb684366851ce3c0430)](https://app.codacy.com/gh/mrlonis/example-angular-workspace/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/ab592b09cb3b4cb684366851ce3c0430)](https://app.codacy.com/gh/mrlonis/example-angular-workspace/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+
 ## Shared AI Instructions
 
 All AI instruction files in this repo are generated from one source file:
