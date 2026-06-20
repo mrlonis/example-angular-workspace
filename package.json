@@ -26,6 +26,9 @@
     "projects/app/**/*.{html,ts}": [
       "ng-lint-staged lint app --fix --"
     ],
+    "projects/input/**/*.{html,ts}": [
+      "ng-lint-staged lint input --fix --"
+    ],
     "projects/lib/**/*.{html,ts}": [
       "ng-lint-staged lint lib --fix --"
     ],
