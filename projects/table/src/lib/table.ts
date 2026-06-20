@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, computed, input, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -8,7 +10,15 @@ import { PeriodicElement } from 'lib';
 
 @Component({
   selector: 'lib-table',
-  imports: [MatButtonModule, MatIconModule, MatPaginatorModule, MatSortModule, MatTableModule],
+  imports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+  ],
   templateUrl: './table.html',
   styleUrl: './table.scss',
 })
@@ -54,5 +64,11 @@ export class Table implements AfterViewInit {
   /** Toggles the expanded state of an element. */
   toggle(element: PeriodicElement) {
     this.expandedElement = this.isExpanded(element) ? null : element;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource().filter = filterValue.trim().toLowerCase();
+    this.dataSource().paginator?.firstPage();
   }
 }
