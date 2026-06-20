@@ -1,8 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input, Signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
-import { ELEMENT_DATA, PeriodicElement } from 'lib';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { PeriodicElement } from 'lib';
 
 @Component({
   selector: 'lib-table',
@@ -13,9 +13,11 @@ import { ELEMENT_DATA, PeriodicElement } from 'lib';
 export class Table {
   // Signals
   readonly data = input<PeriodicElement[]>([]);
+  readonly dataSource: Signal<MatTableDataSource<PeriodicElement>> = computed(
+    () => new MatTableDataSource<PeriodicElement>(this.data()),
+  );
 
   // Properties
-  dataSource = ELEMENT_DATA;
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null = null;
