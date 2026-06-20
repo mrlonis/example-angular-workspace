@@ -6,6 +6,7 @@ import { Paginator } from 'paginator';
 import { Table } from './table';
 
 @Component({
+  selector: 'lib-table-test-host',
   imports: [Table, Paginator],
   template: `<lib-table [data]="data"><lib-paginator /></lib-table>`,
 })
