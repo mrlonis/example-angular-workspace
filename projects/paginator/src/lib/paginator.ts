@@ -15,7 +15,7 @@ export class Paginator implements AfterViewInit {
   readonly paginatorReady = output<MatPaginator>();
   readonly paginator = viewChild.required(MatPaginator);
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.paginatorReady.emit(this.paginator());
   }
 }

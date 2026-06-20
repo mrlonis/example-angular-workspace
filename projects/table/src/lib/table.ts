@@ -45,16 +45,16 @@ export class Table {
 
   // Methods
   /** Checks whether an element is expanded. */
-  isExpanded(element: PeriodicElement) {
+  isExpanded(element: PeriodicElement): boolean {
     return this.expandedElement === element;
   }
 
   /** Toggles the expanded state of an element. */
-  toggle(element: PeriodicElement) {
+  toggle(element: PeriodicElement): void {
     this.expandedElement = this.isExpanded(element) ? null : element;
   }
 
-  onPaginatorReady(paginator: MatPaginator) {
+  onPaginatorReady(paginator: MatPaginator): void {
     this.paginator.set(paginator);
   }
 }
