@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -11,6 +11,10 @@ import { ELEMENT_DATA, PeriodicElement } from 'lib';
   styleUrl: './table.scss',
 })
 export class Table {
+  // Signals
+  readonly data = input<PeriodicElement[]>([]);
+
+  // Properties
   dataSource = ELEMENT_DATA;
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
