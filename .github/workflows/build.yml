@@ -12,16 +12,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run sync:agent-instructions:check
-      - run: npm run build:all
-      - run: npm run lint:ci
-      - run: npm run test:ci
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify agent instruction sync
+        run: npm run sync:agent-instructions:check
+      - name: Build all projects
+        run: npm run build:all
+      - name: Run lint checks
+        run: npm run lint:ci
+      - name: Run test suite
+        run: npm run test:ci
       - name: Upload coverage to Codacy
         uses: codacy/codacy-coverage-reporter-action@v1.3.0
         with:
