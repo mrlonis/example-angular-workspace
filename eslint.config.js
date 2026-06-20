@@ -1,4 +1,5 @@
 // @ts-check
+const path = require('node:path');
 const eslint = require('@eslint/js');
 const { defineConfig } = require('eslint/config');
 const tseslint = require('typescript-eslint');
@@ -14,7 +15,7 @@ module.exports = defineConfig([
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
-          project: 'tsconfig.json',
+          project: path.join(__dirname, 'tsconfig.json'),
         },
       },
     },
