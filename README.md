@@ -71,6 +71,20 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 npm run test:ci
 ```
 
+## Linting
+
+To lint the project and check for code style issues, run:
+
+```bash
+npm run lint
+```
+
+To automatically fix linting issues that can be resolved programmatically, run:
+
+```bash
+npm run lint:fix
+```
+
 ## Running end-to-end tests
 
 For end-to-end (e2e) testing, run:
