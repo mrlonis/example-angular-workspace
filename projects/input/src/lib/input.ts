@@ -1,4 +1,4 @@
-import { Component, input, InputSignal, model, WritableSignal } from '@angular/core';
+import { Component, input, InputSignal, model, ModelSignal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -12,7 +12,7 @@ export class Input {
   // Signals
   readonly label: InputSignal<string> = input<string>('');
   readonly placeholder: InputSignal<string> = input<string>('');
-  readonly value: WritableSignal<string> = model<string>('');
+  readonly value: ModelSignal<string> = model<string>('');
 
   onInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
