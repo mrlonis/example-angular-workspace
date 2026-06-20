@@ -34,7 +34,7 @@ CURSOR_EOL=crlf npm run sync:agent-instructions
 To start a local development server, run:
 
 ```bash
-ng serve
+npm run start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -44,7 +44,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
 ```bash
-npm run ng -- generate component component-name
+npm run ng -- generate component component-name --project=project-name
 ```
 
 For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
