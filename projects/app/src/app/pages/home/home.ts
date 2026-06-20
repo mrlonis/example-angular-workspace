@@ -1,6 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { Input } from 'input';
-import { ELEMENT_DATA } from 'lib';
+import { ELEMENT_DATA, PeriodicElement } from 'lib';
 import { Table } from 'table';
 
 @Component({
@@ -10,6 +10,6 @@ import { Table } from 'table';
   styleUrl: './home.scss',
 })
 export class Home {
-  readonly data = ELEMENT_DATA;
-  readonly filter = signal('');
+  readonly data: PeriodicElement[] = ELEMENT_DATA;
+  readonly filter: WritableSignal<string> = signal<string>('');
 }

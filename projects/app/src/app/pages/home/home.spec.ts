@@ -1,3 +1,4 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Table } from 'table';
@@ -25,8 +26,8 @@ describe('Home', () => {
     component.filter.set('Hydrogen');
     fixture.detectChanges();
 
-    const tableDebugElement = fixture.debugElement.query(By.directive(Table));
-    const tableComponentInstance = tableDebugElement.componentInstance as Table;
+    const tableDebugElement: DebugElement = fixture.debugElement.query(By.directive(Table));
+    const tableComponentInstance: Table = tableDebugElement.componentInstance as Table;
     expect(tableComponentInstance.filter()).toBe('Hydrogen');
   });
 });

@@ -1,4 +1,14 @@
-import { Component, effect, input, signal, viewChild } from '@angular/core';
+import {
+  Component,
+  effect,
+  EffectRef,
+  input,
+  InputSignal,
+  Signal,
+  signal,
+  viewChild,
+  WritableSignal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,32 +25,35 @@ import { Paginator } from 'paginator';
 })
 export class Table {
   // Signals
-  readonly data = input<PeriodicElement[]>([]);
-  readonly filter = input<string>('');
-  readonly paginator = signal<MatPaginator | null>(null);
-  readonly sort = viewChild(MatSort);
+  readonly data: InputSignal<PeriodicElement[]> = input<PeriodicElement[]>([]);
+  readonly filter: InputSignal<string> = input<string>('');
+  readonly paginator: WritableSignal<MatPaginator | undefined> = signal<MatPaginator | undefined>(
+    undefined,
+  );
+  readonly sort: Signal<MatSort | undefined> = viewChild(MatSort);
 
   // Effects
-  readonly syncDataEffect = effect(() => {
+  readonly syncDataEffect: EffectRef = effect(() => {
     this.dataSource.data = this.data();
   });
 
-  readonly syncFilterEffect = effect(() => {
+  readonly syncFilterEffect: EffectRef = effect(() => {
     this.dataSource.filter = this.filter().trim().toLowerCase();
   });
 
-  readonly syncSortEffect = effect(() => {
+  readonly syncSortEffect: EffectRef = effect(() => {
     this.dataSource.sort = this.sort();
   });
 
-  readonly syncPaginatorEffect = effect(() => {
+  readonly syncPaginatorEffect: EffectRef = effect(() => {
     this.dataSource.paginator = this.paginator();
   });
 
   // Properties
-  readonly dataSource = new MatTableDataSource<PeriodicElement>([]);
-  readonly columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
-  readonly columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  readonly dataSource: MatTableDataSource<PeriodicElement> =
+    new MatTableDataSource<PeriodicElement>([]);
+  readonly columnsToDisplay: string[] = ['name', 'weight', 'symbol', 'position'];
+  readonly columnsToDisplayWithExpand: string[] = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null = null;
 
   // Methods
