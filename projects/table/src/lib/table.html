@@ -43,11 +43,13 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="paginator">
-    <td mat-footer-cell *matFooterCellDef [attr.colspan]="columnsToDisplayWithExpand.length">
-      <ng-content />
-    </td>
-  </ng-container>
+  @if (paginatorContent()) {
+    <ng-container matColumnDef="paginator">
+      <td mat-footer-cell *matFooterCellDef [attr.colspan]="columnsToDisplayWithExpand.length">
+        <ng-content />
+      </td>
+    </ng-container>
+  }
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand; sticky: true"></tr>
   <tr
@@ -58,5 +60,7 @@
     (click)="toggle(element)"
   ></tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-  <tr mat-footer-row *matFooterRowDef="['paginator']; sticky: true"></tr>
+  @if (paginatorContent()) {
+    <tr mat-footer-row *matFooterRowDef="['paginator']; sticky: true"></tr>
+  }
 </table>
