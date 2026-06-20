@@ -30,6 +30,33 @@ CREATE example-angular-workspace/.windsurf/rules/guidelines.md (2637 bytes)
     Successfully initialized git.
 ```
 
+## Shared AI Instructions
+
+All AI instruction files in this repo are generated from one source file:
+
+- `agent-instructions/source.md`
+
+To sync updates to all targets, run:
+
+```bash
+npm run sync:agent-instructions
+```
+
+To verify everything is in sync without writing files, run:
+
+```bash
+npm run sync:agent-instructions:check
+```
+
+By default, the Cursor file (`.cursor/rules/cursor.mdc`) keeps its existing line endings and always gets its required frontmatter header.
+
+If you want to force Cursor line endings during sync:
+
+```bash
+CURSOR_EOL=lf npm run sync:agent-instructions
+CURSOR_EOL=crlf npm run sync:agent-instructions
+```
+
 ### Adding ESLint
 
 ```shell

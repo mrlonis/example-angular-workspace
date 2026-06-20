@@ -12,6 +12,8 @@
     "prettier": "prettier --write . --ignore-unknown",
     "prettier:test": "prettier --check . --ignore-unknown",
     "start": "ng serve",
+    "sync:agent-instructions": "node scripts/sync-agent-instructions.mjs",
+    "sync:agent-instructions:check": "node scripts/sync-agent-instructions.mjs --check",
     "test": "ng test",
     "test:ci": "npm run test -- --no-watch --coverage --coverage-reporters html --coverage-reporters lcov --coverage-reporters text --coverage-reporters text-summary",
     "watch": "ng build --watch --configuration development"
