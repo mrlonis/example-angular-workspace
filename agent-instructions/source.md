@@ -1,5 +1,16 @@
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
+## Tooling Versions
+
+Use these versions as compatibility targets when generating code, tests, and commands for this repository.
+
+- TypeScript: v6.0 (configured as `~6.0`)
+- Angular: v22 (configured as `^22`)
+- Node.js: v24.17.0
+- npm: v11.13.0
+- RxJS: v7 (configured as `^7`)
+- Vitest: v4 (configured as `^4`)
+
 ## TypeScript Best Practices
 
 - Use strict type checking
@@ -57,7 +68,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Testing Guidelines
 
-- This project uses `vitest` for unit testing. Write and update unit tests using Vitest APIs and patterns.
+- This project uses `vitest` (v4) for unit testing. Write and update unit tests using Vitest APIs and patterns.
 - Place tests close to the code they verify, and keep test setup focused on behavior rather than implementation details.
 - Prefer clear Arrange-Act-Assert structure with descriptive test names that document expected behavior.
 - Cover happy paths, edge cases, and error handling for components, services, and utility functions.
