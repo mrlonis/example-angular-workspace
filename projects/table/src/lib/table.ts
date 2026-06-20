@@ -42,7 +42,7 @@ export class Table {
   });
 
   readonly syncPaginatorEffect: EffectRef = effect(() => {
-    this.dataSource.paginator = this.paginatorContent()?.paginator() ?? null;
+    this.dataSource.paginator = this.paginatorContent()?.paginator();
   });
 
   // Properties
