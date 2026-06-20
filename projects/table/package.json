@@ -8,6 +8,7 @@
   "peerDependencies": {
     "@angular/common": "^22",
     "@angular/core": "^22",
-    "@angular/material": "^22"
+    "@angular/material": "^22",
+    "lib": "~0.0.1"
   }
 }

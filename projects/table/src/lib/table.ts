@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { PeriodicElement } from 'lib';
 
 @Component({
   selector: 'lib-table',
@@ -24,14 +25,6 @@ export class Table {
   toggle(element: PeriodicElement) {
     this.expandedElement = this.isExpanded(element) ? null : element;
   }
-}
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
