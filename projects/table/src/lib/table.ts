@@ -21,10 +21,19 @@ export class Table {
   readonly sort = viewChild(MatSort);
 
   // Effects
-  readonly syncDataSourceEffect = effect(() => {
+  readonly syncDataEffect = effect(() => {
     this.dataSource.data = this.data();
+  });
+
+  readonly syncFilterEffect = effect(() => {
     this.dataSource.filter = this.filter().trim().toLowerCase();
+  });
+
+  readonly syncSortEffect = effect(() => {
     this.dataSource.sort = this.sort();
+  });
+
+  readonly syncPaginatorEffect = effect(() => {
     this.dataSource.paginator = this.paginator();
   });
 
