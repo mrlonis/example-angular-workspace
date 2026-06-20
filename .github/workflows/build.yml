@@ -22,3 +22,8 @@ jobs:
       - run: npm run build:all
       - run: npm run lint:ci
       - run: npm run test:ci
+      - name: Upload coverage to Codacy
+        uses: codacy/codacy-coverage-reporter-action@v1.3.0
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage/**/lcov.info
