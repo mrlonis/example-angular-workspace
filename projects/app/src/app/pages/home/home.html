@@ -6,6 +6,8 @@
 />
 <lib-table [data]="data" [filter]="filter()">
   <lib-paginator
+    paginatorContent
+    #paginatorContent
     [pageSizeOptions]="[5, 10, 25, 50, 100]"
     [pageSize]="50"
     ariaLabel="Select page of periodic elements"

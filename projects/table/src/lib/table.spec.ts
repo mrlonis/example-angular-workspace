@@ -8,7 +8,9 @@ import { Table } from './table';
 @Component({
   selector: 'lib-table-test-host',
   imports: [Table, Paginator],
-  template: `<lib-table [data]="data"><lib-paginator /></lib-table>`,
+  template: `<lib-table [data]="data"
+    ><lib-paginator paginatorContent #paginatorContent
+  /></lib-table>`,
 })
 class TableWithPaginatorComponent {
   readonly data: PeriodicElement[] = ELEMENT_DATA;
@@ -115,6 +117,19 @@ describe('Table', () => {
     fixture.detectChanges();
 
     expect(component.expandedElement).toBeNull();
+  });
+
+  it('toggles a row when the expand button is clicked via the template', async () => {
+    fixture.componentRef.setInput('data', ELEMENT_DATA);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const button = fixture.debugElement.query(By.css('button[aria-label="expand row"]'))
+      .nativeElement as HTMLButtonElement;
+    button.click();
+    fixture.detectChanges();
+
+    expect(component.expandedElement).toBe(ELEMENT_DATA[0]);
   });
 });
 

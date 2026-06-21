@@ -10,10 +10,10 @@ import {
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { PeriodicElement } from 'lib';
-import { Paginator } from 'paginator';
 
 @Component({
   selector: 'lib-table',
@@ -25,8 +25,9 @@ export class Table {
   // Signals
   readonly data: InputSignal<PeriodicElement[]> = input<PeriodicElement[]>([]);
   readonly filter: InputSignal<string> = input<string>('');
-  readonly paginatorContent: Signal<Paginator | undefined> = contentChild(Paginator);
-  readonly sort: Signal<MatSort | undefined> = viewChild(MatSort);
+  readonly paginatorContent: Signal<{ paginator: Signal<MatPaginator> } | undefined> =
+    contentChild('paginatorContent');
+  readonly sort: Signal<MatSort | undefined> = viewChild<MatSort>('sort');
 
   // Effects
   readonly syncDataEffect: EffectRef = effect(() => {

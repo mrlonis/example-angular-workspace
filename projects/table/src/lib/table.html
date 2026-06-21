@@ -1,4 +1,11 @@
-<table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8">
+<table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  #sort="matSort"
+  multiTemplateDataRows
+  class="mat-elevation-z8"
+>
   @for (column of columnsToDisplay; track column) {
     <ng-container matColumnDef="{{ column }}">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column }}</th>
@@ -46,7 +53,7 @@
   @if (paginatorContent()) {
     <ng-container matColumnDef="paginator">
       <td mat-footer-cell *matFooterCellDef [attr.colspan]="columnsToDisplayWithExpand.length">
-        <ng-content />
+        <ng-content select="[paginatorContent]" />
       </td>
     </ng-container>
   }
