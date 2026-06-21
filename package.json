@@ -19,7 +19,7 @@
     "test": "ng test",
     "test:ci": "npm run test:unit && npm run test:e2e:ci",
     "test:e2e": "playwright test --config='./tests/playwright.config.ts'",
-    "test:e2e:ci": "playwright install chromium && playwright test --project=chromium --config='./tests/playwright.config.ts'",
+    "test:e2e:ci": "playwright install chromium && playwright test --project=chromium --config='./tests/playwright.config.ts' --reporter=line",
     "test:unit": "npm run test -- --no-watch --coverage --coverage-reporters html --coverage-reporters lcov --coverage-reporters text --coverage-reporters text-summary",
     "watch": "ng build --watch --configuration development"
   },
