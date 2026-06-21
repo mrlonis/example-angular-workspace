@@ -153,3 +153,21 @@ Use these versions as compatibility targets when generating code, tests, and com
 - Keep tests deterministic: avoid time, network, and global state coupling unless explicitly mocked.
 - Mock only what is necessary, and prefer lightweight fakes/stubs over deep or brittle mocks.
 - Ensure tests are fast and isolated so they can run reliably in CI.
+
+## Playwright Guidelines
+
+- This project uses Playwright for e2e tests in `tests/`.
+- Always run Playwright with the repository config file:
+  - `--config=tests/playwright.config.ts`
+- Run a single e2e spec locally with a single browser when possible:
+  - `npx playwright test tests/app.spec.ts --config=tests/playwright.config.ts --project=chromium --reporter=line`
+- In CI, use a non-interactive reporter (`line` or `dot`) to avoid hanging/interactive HTML report behavior.
+- Prefer deterministic assertions and stable locators (`getByLabel`, `getByRole`, or stable selectors) over brittle text-only or timing-dependent selectors.
+- Avoid assumptions about default table row counts unless page size is asserted in the same test.
+
+## Coverage Notes (Angular + v8)
+
+- Angular template/query compilation can introduce generated helper functions that appear in coverage reports.
+- Token-based queries (for example, `contentChild(SomeType)` or `viewChild(SomeType)`) can show uncovered anonymous functions even when behavior is tested.
+- Prioritize behavior coverage and user-visible outcomes over forcing synthetic coverage for generated internals.
+- If needed, prefer template-reference-based queries for more stable, measurable coverage paths.

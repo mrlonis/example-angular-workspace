@@ -61,4 +61,11 @@ describe('Paginator', () => {
     await fixture2.whenStable();
     expect(emittedPaginator).toBeInstanceOf(MatPaginator);
   });
+
+  it('resolves the required MatPaginator viewChild signal after render', async () => {
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(component.paginator()).toBeInstanceOf(MatPaginator);
+  });
 });

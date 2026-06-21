@@ -16,4 +16,9 @@ describe('App', () => {
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
+
+  it('has the default title signal value', () => {
+    const appWithTitle = component as unknown as { title: () => string };
+    expect(appWithTitle.title()).toBe('app');
+  });
 });
