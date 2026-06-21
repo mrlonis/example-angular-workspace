@@ -1,6 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { Input } from 'input';
 import { ELEMENT_DATA } from 'lib';
 import { Table } from 'table';
 import { Home } from './home';
@@ -38,5 +39,17 @@ describe('Home', () => {
     const tableDebugElement: DebugElement = fixture.debugElement.query(By.directive(Table));
     const tableComponentInstance: Table = tableDebugElement.componentInstance as Table;
     expect(tableComponentInstance.filter()).toBe('Hydrogen');
+  });
+
+  it('updates filter when input emits valueChange', () => {
+    fixture.detectChanges();
+
+    const inputDebugElement: DebugElement = fixture.debugElement.query(By.directive(Input));
+    const inputComponentInstance: Input = inputDebugElement.componentInstance as Input;
+
+    inputComponentInstance.value.set('Helium');
+    fixture.detectChanges();
+
+    expect(component.filter()).toBe('Helium');
   });
 });
