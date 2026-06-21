@@ -22,7 +22,7 @@ export class Paginator implements AfterViewInit {
   readonly ariaLabel: InputSignal<string> = input<string>('Select page');
 
   readonly paginatorReady: OutputEmitterRef<MatPaginator> = output<MatPaginator>();
-  readonly paginator: Signal<MatPaginator> = viewChild.required(MatPaginator);
+  readonly paginator: Signal<MatPaginator> = viewChild.required<MatPaginator>('paginator');
 
   ngAfterViewInit(): void {
     this.paginatorReady.emit(this.paginator());
