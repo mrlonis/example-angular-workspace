@@ -65,7 +65,7 @@
     "@angular/compiler-cli": "^22",
     "@eslint/js": "^9",
     "@playwright/test": "^1",
-    "@types/node": "^24",
+    "@types/node": "^26",
     "@vitest/coverage-v8": "^4",
     "angular-eslint": "^22",
     "eslint": "^9",
