@@ -57,9 +57,31 @@ updates:
           - 'patch'
           - 'minor'
     ignore:
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
       - dependency-name: '*angular*'
         update-types: ['version-update:semver-major']
       - dependency-name: '*eslint*'
         update-types: ['version-update:semver-major']
+      - dependency-name: 'husky'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'jsdom'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '*lint-staged'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ng-packagr'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '*playwright*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'prettier'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'rxjs'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'sort-package-json'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'tslib'
+        update-types: ['version-update:semver-major']
       - dependency-name: 'typescript'
         update-types: ['version-update:semver-major', 'version-update:semver-minor']
+      - dependency-name: '*vitest*'
+        update-types: ['version-update:semver-major']
