@@ -50,3 +50,9 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Codacy
+.codacy/
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
