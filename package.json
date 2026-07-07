@@ -10,6 +10,7 @@
     "lint:fix": "npm run lint -- --fix && npm run lint:playwright -- --fix",
     "lint:playwright": "eslint -c ./tests/eslint.config.js ./tests",
     "ng": "ng",
+    "playwright:install": "playwright install --with-deps",
     "prepare": "husky",
     "prettier": "prettier --write . --ignore-unknown",
     "prettier:test": "prettier --check . --ignore-unknown",
@@ -17,9 +18,8 @@
     "sync:agent-instructions": "node scripts/sync-agent-instructions.mjs",
     "sync:agent-instructions:check": "node scripts/sync-agent-instructions.mjs --check",
     "test": "ng test",
-    "test:ci": "npm run test:unit && npm run test:e2e:ci",
-    "test:e2e": "playwright test --config='./tests/playwright.config.ts'",
-    "test:e2e:ci": "playwright install chromium && playwright test --project=chromium --config='./tests/playwright.config.ts' --reporter=line",
+    "test:ci": "npm run test:unit && npm run test:e2e",
+    "test:e2e": "npm run playwright:install && playwright test --config=./tests/playwright.config.ts",
     "test:unit": "npm run test -- --no-watch --coverage --coverage-reporters html --coverage-reporters lcov --coverage-reporters text --coverage-reporters text-summary",
     "watch": "ng build --watch --configuration development"
   },
@@ -44,7 +44,7 @@
       "ng-lint-staged lint table --fix --"
     ],
     "tests/**/*.ts": [
-      "eslint -c ./tests/eslint.config.js ./tests --fix"
+      "eslint -c ./tests/eslint.config.js --fix"
     ],
     "!({package.json,projects/**/package.json,projects/app/**/*.{html,ts},projects/lib/**/*.{html,ts},projects/paginator/**/*.{html,ts},projects/table/**/*.{html,ts},tests/**/*.ts})": [
       "prettier --write --ignore-unknown"
@@ -68,7 +68,7 @@
     "@angular/compiler-cli": "^22",
     "@eslint/js": "^9",
     "@playwright/test": "^1",
-    "@types/node": "^24",
+    "@types/node": "^26",
     "@vitest/coverage-v8": "^4",
     "angular-eslint": "^22",
     "eslint": "^9",
